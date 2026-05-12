@@ -1,0 +1,29 @@
+{
+  "name": "mcp-ai-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local MCP adapter for asking browser-based AI bridge providers through 127.0.0.1.",
+  "type": "module",
+  "bin": {
+    "mcp-ai-bridge": "./mcp-ai-bridge.js"
+  },
+  "scripts": {
+    "start": "node ./mcp-ai-bridge.js",
+    "setup": "node ./setup.js",
+    "start-bridge": "node ./scripts/start-browser-bridge.js",
+    "start-bridge-headless": "node ./scripts/start-browser-bridge.js --headless",
+    "mock-bridge": "node ./scripts/mock-bridge.js",
+    "check": "node --check ./mcp-ai-bridge.js && node --check ./setup.js && node --check ./scripts/start-browser-bridge.js && node --check ./scripts/mock-bridge.js"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {},
+  "config": {
+    "browserAiBridgePackage": "browser-ai-bridge@1.0.0"
+  }
+}

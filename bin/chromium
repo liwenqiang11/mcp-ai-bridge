@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+chrome_bin="${PLAYWRIGHT_CHROMIUM_EXECUTABLE:-$HOME/.cache/ms-playwright/chromium-1105/chrome-linux/chrome}"
+
+if [ ! -x "$chrome_bin" ]; then
+  echo "Chromium executable not found: $chrome_bin" >&2
+  echo "Run: npx playwright@1.42.1 install chromium" >&2
+  exit 127
+fi
+
+exec "$chrome_bin" "$@"
